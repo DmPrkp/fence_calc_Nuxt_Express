@@ -10,8 +10,7 @@ npm-debug.log
 # Nuxt generate
 dist
 
-#
-static
+#static
 
 
 # server/calc/calcFunctions/classes
