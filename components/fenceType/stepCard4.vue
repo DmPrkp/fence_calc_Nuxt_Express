@@ -41,20 +41,20 @@ export default {
         },
         {
           id: 3.2,
-          img: "/img/cover/Proflist.jpg",
-          name: "Профлист",
-          plus: ["Долговечность"],
-          minus: ["Cущественных нет"],
-          type: "cover",
-        },
-        {
-          id: 3.3,
           img: "/img/cover/wood.jpg",
           name: "Доска",
           plus: ["Стоимость"],
           minus: [`Недолговечность (10-20 лет)`],
           type: "cover",
         },
+        {
+          id: 3.3,
+          img: "/img/cover/Proflist.jpg",
+          name: "Профлист",
+          plus: ["Долговечность"],
+          minus: ["Cущественных нет"],
+          type: "cover",
+        },        
         {
           id: 3.4,
           img: "/img/cover/SetkaR.jpg",

@@ -1,8 +1,8 @@
 <template>
-  <div>
+  <div>    
     <v-data-table
       :headers="headers"
-      :items="matList"
+      :items="arrObj"
       :items-per-page="100"
       :single-expand="singleExpand"
       :expanded.sync="expanded"
@@ -13,7 +13,7 @@
     >
       <template v-slot:top>
         <v-toolbar flat>
-          <v-toolbar-title>Необходимые материалы и инструменты</v-toolbar-title>
+          <v-toolbar-title>{{title}}</v-toolbar-title>
         </v-toolbar>
       </template>
 
@@ -48,11 +48,13 @@
 
 <script>
 import { mapState } from "vuex";
-import yourFence from "../components/yourFence.vue";
 
 export default {
+  props: ["title", "type"],
   data() {
     return {
+      compType: this.type,
+      cloneObj: [],    
       expanded: [],
       singleExpand: true,
       headers: [
@@ -69,31 +71,24 @@ export default {
         { text: "", value: "actions", sortable: false },
       ],
     };
-  },
-  fetch(context) {
-    return context.$axios
-      .post("/result/requestBase", context.store.state.currentType)
-      .catch((err) => console.log("errPost"))
-      .then((res) => {
-        context.store.commit("setMaterialList", res.data);
-      })
-      .catch((err) => console.log("errResponse"));
-  },
+  }, 
   computed: {
-    ...mapState(["matList", "currentType"]),
+    ...mapState(["matList",]),
+    arrObj() {     
+      return this.$store.state.matList[this.compType];      
+    }
   },
   methods: {
-    editItem(item) {
-      this.editedIndex = $store.matList.indexOf(item);
+    //clonedObj(obj) {},
+    /*editItem(item) {
+      this.editedIndex = cloneObj.indexOf(item);
       this.editedItem = Object.assign({}, item);
       this.dialog = true;
     },
     deleteItem(item) {
-      const index = $store.matList.indexOf(item);
-      $store.matList.splice(index, 1);
-      /*for (let i = 0; i < $store.matList.length; i++) {
-        $store.matList[i].number = i + 1;
-      }*/
+      const index = cloneObj.indexOf(item);
+      cloneObj.splice(index, 1);
+      //for (let i = 0; i < $store.matList.length; i++) {$store.matList[i].number = i + 1;}
     },
     close() {
       this.dialog = false;
@@ -104,9 +99,9 @@ export default {
     },
     save() {
       if (this.editedIndex > -1) {
-        Object.assign($store.matList[this.editedIndex], this.editedItem);
+        Object.assign(cloneObj[this.editedIndex], this.editedItem);
       } else {
-        $store.matList.push(this.editedItem);
+        cloneObj.push(this.editedItem);
       }
       this.close();
     },
@@ -114,10 +109,7 @@ export default {
   watch: {
     dialog(val) {
       val || this.close();
-    },
-  },
-  components: {
-    yourFence: yourFence,
-  },
+    },*/
+  },  
 };
 </script>

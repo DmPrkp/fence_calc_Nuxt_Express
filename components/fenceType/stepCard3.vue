@@ -47,14 +47,14 @@ export default {
           minus: ["Cущественных нет"],
           type: "pillars",
         },
-        {
+        /*{
           id: 2.3,
           img: "/img/pillars/WP.png",
           name: "Пиломатериалы",
           plus: ["Стоимость"],
           minus: ["Недолговечность (10-20 лет)"],
           type: "pillars",
-        },
+        },*/
       ],
     };
   },

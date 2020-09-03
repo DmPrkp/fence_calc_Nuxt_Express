@@ -25,19 +25,14 @@ app.use(session({
   saveUninitialized: true
 }))
 
-app.all('/result/requestBase', function (req, res, next) {
-  let arrAnswer = basementCalc(req.body);  
-  res.json(arrAnswer);
-});
-
-app.all('/result/requestPillar', function (req, res, next) {
-  let arrAnswer = pillarCalc(req.body);  
-  res.json(arrAnswer);
-});
-
-app.all('/result/requestCover', function (req, res, next) {
-  let arrAnswer = coverCalc(req.body);  
-  res.json(arrAnswer);
+app.all('/base', function (req, res, next) {
+  //console.log("req base")
+  let arrAnswer=[];
+  let base = basementCalc(req.body);
+  let pillar = pillarCalc(req.body); 
+  let cover = coverCalc(req.body);
+  arrAnswer.push(base, pillar, cover)
+  res.json(arrAnswer);  
 });
 
 builder.build()
