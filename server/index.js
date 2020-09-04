@@ -27,12 +27,12 @@ app.use(session({
 
 app.all('/base', function (req, res, next) {
   //console.log("req base")
-  let arrAnswer=[];
+  let arrAnswer = [];
   let base = basementCalc(req.body);
-  let pillar = pillarCalc(req.body); 
+  let pillar = pillarCalc(req.body);
   let cover = coverCalc(req.body);
   arrAnswer.push(base, pillar, cover)
-  res.json(arrAnswer);  
+  res.json(arrAnswer);
 });
 
 builder.build()
@@ -40,8 +40,9 @@ builder.build()
     // Рендерить каждый маршрут с Nuxt.js
     app.use(nuxt.render)
     // Запустить сервер
-    app.listen(80, () => {
-      console.log('Server run in 8000 port');
-    });
+    const PORT = process.env.PORT || 3000
+    app.listen(PORT, function () {
+      console.log('Server port:' + PORT);
+    })    
   });
 

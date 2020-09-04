@@ -1,9 +1,4 @@
-module.exports = {
-  server: {
-    port: 80, 
-    host: 'localhost',
-    timing: false
-  },
+module.exports = {  
   buildModules: [
     '@nuxtjs/vuetify'
   ],

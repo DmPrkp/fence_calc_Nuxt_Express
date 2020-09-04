@@ -26,7 +26,7 @@
         <v-radio label="до 2 м."  :value="depth[4]"></v-radio>
       </v-radio-group>
       <p>
-        <em class="text-center">Глубина залегания фундамента с учетом щебеночного основания 15см: {{ chosenDepth + 0.15}} м</em>
+        <em class="text-center">Глубина залегания фундамента с учетом щебеночного основания 15см: {{ +chosenDepth + 0.15}} м</em>
         <v-icon>mdi-help-rhombus-outline</v-icon>
       </p>
     </div>
