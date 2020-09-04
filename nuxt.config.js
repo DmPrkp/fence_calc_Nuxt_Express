@@ -1,6 +1,7 @@
 module.exports = {
   server: {
     port: 80, 
+    host: '130.193.39.168',    
   },
   buildModules: [
     '@nuxtjs/vuetify'
