@@ -1,4 +1,7 @@
-module.exports = {  
+module.exports = {
+  server: {
+    port: 80, 
+  },
   buildModules: [
     '@nuxtjs/vuetify'
   ],

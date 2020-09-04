@@ -40,7 +40,7 @@ builder.build()
     // Рендерить каждый маршрут с Nuxt.js
     app.use(nuxt.render)
     // Запустить сервер
-    const PORT = process.env.PORT || 3000
+    const PORT = process.env.PORT || 80
     app.listen(PORT, function () {
       console.log('Server port:' + PORT);
     })    
