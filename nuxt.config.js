@@ -20,6 +20,6 @@ module.exports = {
   },
   modules: [
     '@nuxtjs/axios'
-  ]
+  ],
+  telemetry: false
 }
-
