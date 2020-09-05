@@ -1,3 +1,7 @@
 <template>
-    <h1>How</h1>
+  <v-container>
+    
+      <h2 class="text-center">Как это работает?</h2>
+    
+  </v-container>
 </template>

@@ -52,23 +52,18 @@
 
     <v-sheet id="scrolling-techniques-2" class="overflow-y-auto" max-height="900">
       <v-main id="content-test">
-        <v-container>
-          <transition mode="out-in" appear>
-            <nuxt />
-          </transition>
-        </v-container>
+        <transition mode="out-in" appear>
+          <nuxt />
+        </transition>
       </v-main>
 
-      <v-footer absolute class="font-weight-medium" dark app>
-        <v-col class="text-center" cols="12">
-          {{ new Date().getFullYear() }} —
-          <strong>fence calc</strong>
-        </v-col>
+      <v-footer style="display: flex; justify-content: center; flex-direction: column;" class="font-weight-medium" dark app>      
+        <div>fence calc</div>
+        <div>{{ new Date().getFullYear() }}</div>
       </v-footer>
     </v-sheet>
   </v-app>
 </template>
 
 <script>
-
 </script>>

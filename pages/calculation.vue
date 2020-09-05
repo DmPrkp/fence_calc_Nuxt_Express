@@ -1,10 +1,10 @@
 <template>
-  <div>
+  <v-container>
     <transition name="fromLeft">
       <div>
         <h3 class="text-center mb-10">Определяем конструкцию ограждения и его длинну</h3>
         <v-row>
-          <v-col col="12" lg="3">
+          <v-col class="d-none d-lg-flex" lg="3">
             <transition name="fromLeft">
               <yourFence />
             </transition>
@@ -24,7 +24,7 @@
         </v-row>
       </div>
     </transition>    
-  </div>
+  </v-container>
 </template>
 
 <script>
