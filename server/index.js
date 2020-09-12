@@ -17,8 +17,8 @@ const VKontakteStrategy = require('passport-vkontakte').Strategy;
 
 const nuxt = new Nuxt(config);
 const builder = new Builder(nuxt);
-//const dbUrl = 'mongodb://localhost';
-const dbUrl = 'mongodb://130.193.39.168:27017/'
+const dbUrl = 'mongodb://localhost';
+//const dbUrl = 'mongodb://130.193.39.168:27017/'
 
 /*
 app.use(bodyParser.urlencoded({ extended: true }));
