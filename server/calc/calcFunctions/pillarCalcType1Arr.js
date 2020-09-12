@@ -3,7 +3,7 @@ const { BrickPillarClass } = require("./classes/BrickClasses")
 const { MortarClass } = require("./classes/MortarClass")
 
 function pillarCalcType1Arr(obj) {
-    console.log("inside pillar type 1 func")
+    //console.log("inside pillar type 1 func")
     let equalArr = [];
 
     let objPillars = new PillarClasses(obj);

@@ -5,7 +5,7 @@ const { RubbleClass } = require('./classes/RubbleClass.js')
 const { PuttyKnife100c} = require('./classes/PuttyClass.js')
 
 function baseCalcType2Arr(obj) {
-    console.log("inside basement type 2 func")
+    //console.log("inside basement type 2 func")
     let equalArr = [];   
 
     let objConcrete = new PillarBase(obj),

@@ -4,7 +4,7 @@
     <h1 class="display-1 mb-2 ml-5 mt-5 font-weight-black">fance calc</h1>
     <h3
       class="font-weight-light mb-4"
-    >сайт для расчета материалов, инструментов и малоценки нобходимых для строительства огражения</h3>
+    >сайт для расчета материалов, инструментов и малоценки необходимых для строительства ограждения</h3>
     </v-container>
     <div class="cutImg bgImgDiv">
       <img

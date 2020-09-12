@@ -20,10 +20,10 @@
       <h4 class="text-center">Укажите глубину промерзания:</h4>
       <!---->
       <v-radio-group v-model="chosenDepth" :checked="setDepth(chosenDepth)" :mandatory="false" row>
-        <v-radio label="до 0.5 м."  :value="depth[1]"></v-radio>
-        <v-radio label="до 1 м."  :value="depth[2]"></v-radio>
-        <v-radio label="до 1.5 м."  :value="depth[3]"></v-radio>
-        <v-radio label="до 2 м."  :value="depth[4]"></v-radio>
+        <v-radio label="до 0.5 м." color="red"  :value="depth[1]"></v-radio>
+        <v-radio label="до 1 м." color="yellow" :value="depth[2]"></v-radio>
+        <v-radio label="до 1.5 м." color="green" :value="depth[3]"></v-radio>
+        <v-radio label="до 2 м." color="blue" :value="depth[4]"></v-radio>
       </v-radio-group>
       <p>
         <em class="text-center">Глубина залегания фундамента с учетом щебеночного основания 15см: {{ +chosenDepth + 0.15}} м</em>

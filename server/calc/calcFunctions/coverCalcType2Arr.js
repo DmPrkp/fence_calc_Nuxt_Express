@@ -6,13 +6,13 @@ const { Enamel } = require ('./classes/EnamelClasses')
 const { Saw } = require("./classes/PowerTools")
 
 function coverCalcType2Arr(obj) {
-    console.log("inside cover type 2 func")
+   //console.log("inside cover type 2 func")
     let equalArr = [];
 
     let objHorizontal = new WoodenHorizontal(obj)
     let objFasten = new FastenPlace(obj)
-    let objEnemelHorizontal = new Enamel(objHorizontal)
-    equalArr.push(objHorizontal, objFasten, objEnemelHorizontal)
+    //let objEnemelHorizontal = new Enamel(objHorizontal)
+    equalArr.push(objHorizontal, objFasten)
 
     let objWoodPickets = new WoodPickets(obj)
     let objScrewsPickets = new ScrewsPickets(objWoodPickets)

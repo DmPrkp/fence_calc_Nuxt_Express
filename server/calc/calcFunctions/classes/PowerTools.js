@@ -11,7 +11,7 @@ class Saw extends PowerTools {
     constructor() {
         super() 
         this.name = "Циркулярная пила"
-        this.char = "если деньги есть возьмите гипойдную"
+        this.char = "любая"
         this.expandRow = "для раскройки досок"
     }
 }

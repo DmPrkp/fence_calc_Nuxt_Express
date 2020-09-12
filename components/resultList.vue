@@ -1,19 +1,91 @@
 <template>
-  <div>    
+  <div class="mx-auto">
     <v-data-table
       :headers="headers"
-      :items="arrObj"
+      :items="cloneObj"
       :items-per-page="100"
       :single-expand="singleExpand"
       :expanded.sync="expanded"
       item-key="char"
       show-expand
-      class="elevation-1 mx-auto"
+      class="elevation-3"
       hide-default-footer
     >
       <template v-slot:top>
         <v-toolbar flat>
           <v-toolbar-title>{{title}}</v-toolbar-title>
+          <v-spacer></v-spacer>
+          <v-dialog v-model="dialog" max-width="800px">
+            <template v-slot:activator="{ on, attrs }">
+              <v-btn color="success" big tile dark class="mb-2" v-bind="attrs" v-on="on">
+                <v-icon class="mr-2">mdi-plus-circle</v-icon>добавить
+              </v-btn>
+            </template>
+            <v-card>              
+              <v-card-text>
+                <v-container>
+                  <v-row>
+                    <v-col cols="6" md="2">
+                      <v-text-field
+                        type="text"
+                        v-model="editedItem.name"
+                        :label="headers[0].text"
+                        :rules="rules"
+                      ></v-text-field>
+                    </v-col>
+                    <v-col cols="6" md="7">
+                      <v-text-field
+                        type="text"
+                        v-model="editedItem.char"
+                        :label="headers[1].text"
+                        :rules="rules"
+                      ></v-text-field>
+                    </v-col>
+                    <v-col cols="6" md="1">
+                      <v-text-field
+                        type="number"                       
+                        v-model="editedItem.quantity"
+                        :label="headers[2].text"
+                        :rules="rules"
+                      ></v-text-field>
+                    </v-col>
+                    <v-col cols="6" md="1">
+                      <v-text-field
+                        type="text"
+                        v-model="editedItem.unitOfMeasurement"
+                        :label="headers[3].text"
+                        :rules="rules"
+                      ></v-text-field>
+                    </v-col>
+                    <v-col cols="6" md="1">
+                      <v-text-field
+                        type="text"
+                        v-model="editedItem.type"
+                        :label="headers[4].text"
+                        :rules="rules"
+                      ></v-text-field>
+                    </v-col>
+                  </v-row>
+                  <v-row>
+                    <v-col cols="12">
+                      <v-text-field
+                        type="text"
+                        v-model="editedItem.expandRow"
+                        label="Пояснение"
+                        :rules="rulesLong"
+                      ></v-text-field>
+                    </v-col>
+                  </v-row>
+                </v-container>
+              </v-card-text>
+
+              <v-card-actions>
+                <v-spacer></v-spacer>
+                <v-btn color="blue darken-1" text @click="close">Отмена</v-btn>
+                <v-btn color="blue darken-1" text @click="save">Сохранить</v-btn>
+              </v-card-actions>
+            </v-card>
+          </v-dialog>
         </v-toolbar>
       </template>
 
@@ -54,8 +126,13 @@ export default {
   data() {
     return {
       compType: this.type,
-      cloneObj: [],    
+      cloneObj: JSON.parse(
+        JSON.stringify(this.$store.state.matList[this.type])
+      ),
       expanded: [],
+      dialog: false,
+      rules: [(value) => (value.length < 50) || "Слишком длинная строка"],
+      rulesLong: [(value) => (value.length < 500) || "Слишком длинная строка"],
       singleExpand: true,
       headers: [
         {
@@ -70,24 +147,37 @@ export default {
         { text: "Тип", value: "type" },
         { text: "", value: "actions", sortable: false },
       ],
+      editedIndex: -1,
+      editedItem: {
+        name: "",
+        char: "",
+        quantity: "",
+        unitOfMeasurement: "",
+        type: "",
+        expandRow : "",      
+      },
+      defaultItem: {
+        name: "",
+        char: "",
+        quantity: "",
+        unitOfMeasurement: "",
+        type: "",
+        expandRow: "",  
+      },
     };
-  }, 
+  },
   computed: {
-    ...mapState(["matList",]),
-    arrObj() {     
-      return this.$store.state.matList[this.compType];      
-    }
+    ...mapState(["matList"]),
   },
   methods: {
-    //clonedObj(obj) {},
-    /*editItem(item) {
-      this.editedIndex = cloneObj.indexOf(item);
+    editItem(item) {
+      this.editedIndex = this.cloneObj.indexOf(item);
       this.editedItem = Object.assign({}, item);
       this.dialog = true;
     },
     deleteItem(item) {
-      const index = cloneObj.indexOf(item);
-      cloneObj.splice(index, 1);
+      const index = this.cloneObj.indexOf(item);
+      this.cloneObj.splice(index, 1);
       //for (let i = 0; i < $store.matList.length; i++) {$store.matList[i].number = i + 1;}
     },
     close() {
@@ -99,9 +189,9 @@ export default {
     },
     save() {
       if (this.editedIndex > -1) {
-        Object.assign(cloneObj[this.editedIndex], this.editedItem);
+        Object.assign(this.cloneObj[this.editedIndex], this.editedItem);
       } else {
-        cloneObj.push(this.editedItem);
+        this.cloneObj.push(this.editedItem);
       }
       this.close();
     },
@@ -109,7 +199,7 @@ export default {
   watch: {
     dialog(val) {
       val || this.close();
-    },*/
-  },  
+    },
+  },
 };
 </script>

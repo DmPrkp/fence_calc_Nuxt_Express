@@ -5,7 +5,7 @@ const { RubbleClass } = require('./classes/RubbleClass.js')
 const { PuttyKnife100c, PuttyKnife300c } = require('./classes/PuttyClass.js')
 
 function baseCalcType1Arr(obj) {
-    console.log("inside basement type 1 func")
+    //console.log("inside basement type 1 func")
     let equalArr = [];   
 
     let objConcrete = new StripBase(obj),

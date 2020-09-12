@@ -47,6 +47,7 @@ export default {
           minus: [`Недолговечность (10-20 лет)`],
           type: "cover",
         },
+        /*
         {
           id: 3.3,
           img: "/img/cover/Proflist.jpg",
@@ -79,6 +80,7 @@ export default {
           minus: ["Недолговечность(10-20 лет)"],
           type: "cover",
         },
+        */
       ],
     };
   },
